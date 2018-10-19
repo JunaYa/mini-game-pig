@@ -46,6 +46,7 @@ export default class Main {
             this.event.type = "touchstart";
             this.event.x = e.touches[0].clientX;
             this.event.y = e.touches[0].clientY;
+            console.log('touchstart')
         });
         wx.onTouchEnd(e => {
             this.event.type = "touchend";

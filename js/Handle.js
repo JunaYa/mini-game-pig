@@ -19,8 +19,8 @@ function within(point, action) {
 export default class Handle {
     constructor(viewWidth, viewHeight) {
         const centerPoint = {
-            x: viewWidth / 4,
-            y: (viewHeight * 3) / 5
+            x: viewWidth / 5,
+            y: (viewHeight * 4) / 5
         };
         this.size = {
             width: 20,
@@ -42,7 +42,8 @@ export default class Handle {
                 y: centerPoint.y,
                 width: this.size.width,
                 height: this.size.height,
-                active: false,
+                active: true,
+                icon: 'assets/images/left.png',
             },
             {
                 action: "TOP",
@@ -58,7 +59,8 @@ export default class Handle {
                 y: centerPoint.y,
                 width: this.size.width,
                 height: this.size.height,
-                active: false,
+                active: true,
+                icon: 'assets/images/right.png',
             },
             {
                 action: "BOTTOM",
@@ -77,6 +79,7 @@ export default class Handle {
                 width: 24,
                 height: 24,
                 active: false,
+                icon: 'assets/images/jump.png',
             }
         ];
     }
