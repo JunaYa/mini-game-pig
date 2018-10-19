@@ -11,7 +11,6 @@ function within(point, action) {
         point.y > top &&
         point.y < bottom
     ) {
-        action.active= !action.active;
         return action;
     }
     return false;

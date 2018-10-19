@@ -22,7 +22,7 @@ function overlap(actor1, actor2) {
     );
 }
 
-State.prototype.update = function(time, event) {
+State.prototype.update = function(event) {
     const actions = this.handle.actions(event);
     const actors = this.actors.map(actor => actor.update(this, actions));
     let newState = new State(this.level, actors, this.status, this.handle);

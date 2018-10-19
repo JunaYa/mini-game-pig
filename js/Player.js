@@ -20,9 +20,6 @@ const gravity = 30;
 const jumpSpeed = 17;
 Player.prototype.update = function(state, actions) {
     const time = 0.03;
-    if(actions.attack) {
-        console.log(actions.attack);
-    }
     let xSpeed = 0;
     const isLeftAction =
         actions && actions.azimuth && actions.azimuth.action === "LEFT";
