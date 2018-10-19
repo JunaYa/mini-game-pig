@@ -133,7 +133,7 @@ function drawHandle(ctx, handle, btnLeft, btnRight, btnJump) {
         // } else {
         //     ctx.strokeStyle = "#bebebe90";
         // }
-        
+
         btnJump.src = attack.icon;
         ctx.drawImage(
             btnJump,

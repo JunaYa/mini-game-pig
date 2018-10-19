@@ -19,9 +19,6 @@ const playerXSpeed = 7;
 const gravity = 30;
 const jumpSpeed = 17;
 Player.prototype.update = function(state, actions) {
-    if(actions.attack){
-        console.log(actions.attack);
-    }
     const time = 0.03;
     let xSpeed = 0;
     const isLeftAction =
