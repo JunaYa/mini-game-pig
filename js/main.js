@@ -22,6 +22,7 @@ export default class Main {
         this.levels = plants.map(level => {
             return new Level(level);
         });
+        this.levelIndex = 0;
         this.restart();
     }
 
@@ -29,8 +30,8 @@ export default class Main {
         this.frame = 0;
 
         const handle = new Handle(canvas.width, canvas.height);
-        this.state = State.start(this.levels[1], handle);
-        this.domDisplay = new DOMDisplay(ctx, this.levels[1]);
+        this.state = State.start(this.levels[this.levelIndex], handle);
+        this.domDisplay = new DOMDisplay(ctx, this.levels[this.levelIndex]);
 
         this.bindLoop = this.loop.bind(this);
         this.hasEventBind = false;
@@ -42,17 +43,17 @@ export default class Main {
 
     registerEventListener() {
         wx.onTouchStart(e => {
-            this.event.type = 'touchstart';
+            this.event.type = "touchstart";
             this.event.x = e.touches[0].clientX;
             this.event.y = e.touches[0].clientY;
         });
         wx.onTouchEnd(e => {
-            this.event.type = 'touchend';
+            this.event.type = "touchend";
             this.event.x = e.changedTouches[0].clientX;
             this.event.y = e.changedTouches[0].clientY;
         });
         wx.onTouchMove(e => {
-            this.event.type = 'touchmove';
+            this.event.type = "touchmove";
             this.event.x = e.touches[0].clientX;
             this.event.y = e.touches[0].clientY;
         });
@@ -66,6 +67,12 @@ export default class Main {
 
     update() {
         this.state = this.state.update(this.event);
+        if (this.state.status === "lost") {
+            this.restart();
+        } else if (this.state.status === "won") {
+            this.levelIndex += 1;
+            this.restart();
+        }
     }
 
     loop() {
