@@ -5,11 +5,11 @@ const baseWidth = 15;
 const baseHeight = baseWidth;
 let status = "";
 
-function drawPixle(ctx, x, y, pixle, dom) {
-    const startX = x * pixle.width - dom.scrollLeft;
-    const startY = y * pixle.height - dom.scrollTop;
-    ctx.fillStyle = pixle.color;
-    ctx.fillRect(startX, startY, pixle.width, pixle.height);
+function drawPixel(ctx, x, y, pixel, dom) {
+    const startX = x * pixel.width - dom.scrollLeft;
+    const startY = y * pixel.height - dom.scrollTop;
+    ctx.fillStyle = pixel.color;
+    ctx.fillRect(startX, startY, pixel.width, pixel.height);
 }
 
 function drawBackground(ctx) {
@@ -38,7 +38,7 @@ function drawActors(ctx, actors, dom) {
     actors.map(actor => {
         switch (actor.type) {
             case "coin":
-                drawPixle(ctx, actor.pos.x, actor.pos.y, coin, dom);
+                drawPixel(ctx, actor.pos.x, actor.pos.y, coin, dom);
                 break;
             case "player":
                 const startX = actor.pos.x * hero.width;
@@ -60,7 +60,7 @@ function drawActors(ctx, actors, dom) {
                 );
                 break;
             case "lava":
-                drawPixle(ctx, actor.pos.x, actor.pos.y, lava, dom);
+                drawPixel(ctx, actor.pos.x, actor.pos.y, lava, dom);
                 break;
         }
     });
@@ -76,7 +76,7 @@ function drawWalls(ctx, level, dom) {
         return row.map((pixel, x) => {
             switch (pixel.type) {
                 case "wall":
-                    drawPixle(ctx, x, y, wall, dom);
+                    drawPixel(ctx, x, y, wall, dom);
                     break;
             }
         });

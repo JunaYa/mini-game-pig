@@ -14,7 +14,7 @@
 │   └── enemy.js                           // 敌机类
 ├── player
 │   ├── bullet.js                          // 子弹类
-│   └── index.js                           // 玩家类
+│   └── Button.js                           // 玩家类
 ├── runtime
 │   ├── background.js                      // 背景类
 │   ├── gameinfo.js                        // 用于展示分数和结算界面
